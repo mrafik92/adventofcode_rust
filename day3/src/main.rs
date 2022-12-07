@@ -14,7 +14,17 @@ fn main() {
         .map(|common_char| get_item_priority(common_char))
         .sum();
 
-    println!("Sum is {}", sum)
+    let sum_of_three: u32 = contents
+        .trim()
+        .split('\n')
+        .collect::<Vec<&str>>()
+        .chunks(3)
+        .map(|chunks_of_3| get_common_char_from_array(chunks_of_3))
+        .map(|common_char| get_item_priority(common_char))
+        .sum();
+
+    println!("Sum is {}", sum);
+    println!("Sum of 3 is {}", sum_of_three);
 }
 
 fn get_common_char(p0: &str, p1: &str) -> char {
@@ -24,6 +34,19 @@ fn get_common_char(p0: &str, p1: &str) -> char {
         for p_1 in p1.chars() {
             if p_1 == p_0 {
                 return p_0;
+            }
+        }
+    }
+    '0'
+}
+
+fn get_common_char_from_array(p: &[&str]) -> char {
+    for p_0 in p[0].chars() {
+        for p_1 in p[1].chars() {
+            for p_2 in p[2].chars() {
+                if p_1 == p_0 && p_1 == p_2 {
+                    return p_0;
+                }
             }
         }
     }
