@@ -1,13 +1,13 @@
 use std::fs;
 
-const FILE_PATH: &str = "./input.txt";
+const FILE_PATH: &str = "./day3/input.txt";
 
 fn main() {
     let contents = fs::read_to_string(FILE_PATH).expect("Should have been able to read the file");
 
     let sum: u32 = contents
         .trim()
-        .split('\n')
+        .lines()
         .map(|split| split.trim())
         .map(|split| (split, split.len() / 2))
         .map(|(split, size)| get_common_char(&split[..size], &split[size..]))
@@ -16,8 +16,8 @@ fn main() {
 
     let sum_of_three: u32 = contents
         .trim()
-        .split('\n')
-        .collect::<Vec<&str>>()
+        .lines()
+        .collect::<Vec<_>>()
         .chunks(3)
         .map(|chunks_of_3| get_common_char_from_array(chunks_of_3))
         .map(|common_char| get_item_priority(common_char))
