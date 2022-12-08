@@ -2,7 +2,7 @@ use crate::Hand::{PAPER, ROCK, SCISSORS};
 use crate::HandResult::{Draw, Lose, Win};
 use std::fs;
 
-const FILE_PATH: &str = "./day2/input.txt";
+const FILE_PATH: &str = "./day02/input.txt";
 
 fn main() {
     println!("In file {}", FILE_PATH);

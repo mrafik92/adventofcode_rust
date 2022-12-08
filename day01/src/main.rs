@@ -1,6 +1,6 @@
 use std::fs;
 
-const FILE_PATH: &str = "./day1/input.txt";
+const FILE_PATH: &str = "./day01/input.txt";
 
 fn main() {
     println!("In file {}", FILE_PATH);
